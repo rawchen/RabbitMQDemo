@@ -1,0 +1,30 @@
+server:
+  port: 8070
+
+spring:
+  application:
+    name: RabbitMQDemo
+  thymeleaf:
+    prefix: classpath:/templates/
+    suffix: .html
+    mode: HTML5
+    encoding: UTF-8
+    cache: false
+    servlet:
+      content-type: text/html
+
+  devtools:
+    restart:
+      enabled: true
+      additional-paths: src/main/java
+
+  mvc:
+    # 用于静态资源的路径模式，默认为/**
+    static-path-pattern: /**
+
+  rabbitmq:
+    host: 127.0.0.1
+    port: 5672
+    username: guest
+    password: guest
+    virtualHost: /
