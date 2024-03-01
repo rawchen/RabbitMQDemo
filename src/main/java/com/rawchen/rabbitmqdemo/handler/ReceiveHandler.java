@@ -17,7 +17,7 @@ public class ReceiveHandler {
 	@RabbitListener(queues = {RabbitmqConfig.QUEUE_INFORM_SMS})
 	public void receive_sms(Object msg, Message message, Channel channel) {
 //		System.out.println("QUEUE_INFORM_SMS msg: " + message.getBody());
-		System.out.println("消息：" + new String(message.getBody()) + " 来自交换机：" + message.getMessageProperties().getReceivedExchange());
+		System.out.println("接收消息：" + new String(message.getBody()) + " 来自交换机：" + message.getMessageProperties().getReceivedExchange());
 
 	}
 }

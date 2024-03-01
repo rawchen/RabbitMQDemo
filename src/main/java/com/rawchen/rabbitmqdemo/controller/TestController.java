@@ -24,7 +24,7 @@ public class TestController {
     @ResponseBody
     public String send() {
         //使用rabbitTemplate发送消息
-        String message = "这是一条消息...." + new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date());
+        String message = "这是一条消息..." + new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date());
         /**
          * 参数：
          * 1、交换机名称
@@ -32,6 +32,7 @@ public class TestController {
          * 3、消息内容
          */
         rabbitTemplate.convertAndSend(RabbitmqConfig.EXCHANGE_TOPICS_INFORM, "inform.sms", message);
+        System.out.println("发送消息：" + message + " 交换机：exchange_topics_inform" + " routingKey: inform.sms");
         return "success";
     }
 }
